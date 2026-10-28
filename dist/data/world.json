@@ -1,0 +1,116 @@
+{
+  "locations": [
+    {
+      "id": "forest",
+      "name": "유성이 내린 산속",
+      "subtitle": "첫 만남 이후, 산을 둘러싼 열세 갈래의 이야기",
+      "description": "부러진 나무 너머로 작은 거처의 지붕이 보인다. 계곡과 산길, 오래된 돌무더기는 모두 이 산 안에 있다.",
+      "links": [],
+      "risk": 25
+    }
+  ],
+  "characters": [
+    {
+      "id": "jihyo",
+      "name": "지효",
+      "title": "음기를 품은 마녀",
+      "faction": "무소속",
+      "location": "forest",
+      "hp": 90,
+      "power": 16,
+      "agility": 12,
+      "insight": 18,
+      "will": 16,
+      "resource": "음기",
+      "value": 42,
+      "personality": "경계 속에서도 타인의 고통에 마음이 흔들린다.",
+      "goal": "자신과 소중한 사람을 지킨다.",
+      "lore": "provided"
+    },
+    {
+      "id": "baekho",
+      "name": "백호",
+      "title": "하늘에서 내려온 사신기",
+      "faction": "사신기",
+      "location": "forest",
+      "hp": 120,
+      "power": 23,
+      "agility": 17,
+      "insight": 12,
+      "will": 20,
+      "resource": "신성",
+      "value": 85,
+      "personality": "인간을 지킬 의무와 눈앞의 개인 사이에서 갈등한다.",
+      "goal": "숲의 음기와 지효의 정체를 확인한다.",
+      "lore": "provided"
+    },
+    {
+      "id": "snake",
+      "name": "뱀",
+      "title": "그늘 속의 추적자",
+      "faction": "십이지신",
+      "location": "offstage",
+      "hp": 140,
+      "power": 24,
+      "agility": 20,
+      "insight": 20,
+      "will": 21,
+      "resource": "요력",
+      "value": 80,
+      "personality": "직접 드러나기보다 정보와 우위를 확보한다.",
+      "goal": "음기의 근원을 추적한다.",
+      "lore": "prototype"
+    },
+    {
+      "id": "do",
+      "name": "도주향",
+      "title": "먼 길을 온 방문자",
+      "faction": "독립",
+      "location": "offstage",
+      "hp": 100,
+      "power": 17,
+      "agility": 17,
+      "insight": 20,
+      "will": 16,
+      "resource": "기력",
+      "value": 65,
+      "personality": "상대를 살피며 신중하게 거래한다.",
+      "goal": "몽낙리의 이상 현상을 조사한다.",
+      "lore": "prototype"
+    },
+    {
+      "id": "han",
+      "name": "한량",
+      "title": "가면 뒤의 웃음",
+      "faction": "불명",
+      "location": "offstage",
+      "hp": 110,
+      "power": 19,
+      "agility": 21,
+      "insight": 24,
+      "will": 20,
+      "resource": "주력",
+      "value": 75,
+      "personality": "속내를 숨기고 질문으로 상대를 떠본다.",
+      "goal": "봉인과 관련된 책을 건넬 상대를 찾는다.",
+      "lore": "prototype"
+    }
+  ],
+  "skills": [
+    {
+      "id": "strike",
+      "name": "기본 공격",
+      "cost": 0,
+      "range": 0,
+      "scale": 1
+    },
+    {
+      "id": "skill",
+      "name": "기술 사용",
+      "cost": 12,
+      "range": 1,
+      "scale": 1.7
+    }
+  ],
+  "events": []
+}

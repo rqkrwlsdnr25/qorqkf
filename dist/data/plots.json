@@ -1,0 +1,1490 @@
+{
+  "version": 1,
+  "region": "forest",
+  "canonNote": "이 파일의 세부 사건·대사·분기는 게임용 창작 초안이며 원작 확정 설정이 아닙니다.",
+  "subs": [
+    {
+      "id": "s01",
+      "kind": "sub",
+      "title": "유성의 흔적",
+      "entry": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "title": "유성의 흔적",
+          "text": "나무가 쓰러진 자리에 희미한 빛이 남아 있다. 누군가 산 아래에서 올려다본다면 길잡이가 될 만한 흔적이다.",
+          "choices": [
+            {
+              "id": "hide",
+              "label": "함께 흔적을 덮는다",
+              "result": "젖은 흙과 가지로 빛나는 자리를 덮었다. 발자국까지 지워지고, 산은 잠시 침묵을 되찾는다.",
+              "effects": {
+                "stats": {
+                  "energy": -6
+                },
+                "flags": [
+                  "concealed"
+                ],
+                "pressure": -12,
+                "trust": 2,
+                "items": {}
+              }
+            },
+            {
+              "id": "study",
+              "label": "흔적에서 신력의 결을 읽는다",
+              "result": "빛이 남긴 균열을 기억했다. 힘의 흐름은 배웠지만 빛을 완전히 숨기지는 못했다.",
+              "effects": {
+                "stats": {
+                  "insight": 2
+                },
+                "flags": [
+                  "meteor_read"
+                ],
+                "pressure": 5,
+                "trust": 0,
+                "items": {}
+              }
+            },
+            {
+              "id": "beacon",
+              "label": "일부러 빛을 남겨 상대를 유인한다",
+              "result": "숨어 있을 상대에게 도전장을 남겼다. 누가 먼저 다가오는지 확인할 준비가 필요하다.",
+              "effects": {
+                "stats": {
+                  "power": 1
+                },
+                "flags": [
+                  "beacon"
+                ],
+                "pressure": 12,
+                "trust": 0,
+                "items": {}
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "kind": "sub",
+      "title": "찢어진 소매",
+      "entry": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "title": "찢어진 소매",
+          "text": "피가 밴 소매 끝이 눈에 들어온다. 서로 경계하는 사이에도 작은 상처는 숨길 수 없다.",
+          "choices": [
+            {
+              "id": "bandage",
+              "label": "자기 옷을 찢어 상대의 상처를 묶는다",
+              "result": "말없이 건넨 천 조각을 상대가 받아들였다. 당장은 작지만 분명한 빚이 남았다.",
+              "effects": {
+                "stats": {
+                  "energy": -3
+                },
+                "flags": [
+                  "bandaged"
+                ],
+                "pressure": 0,
+                "trust": 6,
+                "items": {}
+              }
+            },
+            {
+              "id": "herb",
+              "label": "약초 한 줌을 써서 치료한다",
+              "result": "지혈을 마친 뒤 약초를 함께 챙겼다. 다음 상처에도 대응할 수 있을 것 같다.",
+              "effects": {
+                "stats": {
+                  "hp": 8
+                },
+                "flags": [
+                  "care"
+                ],
+                "pressure": 0,
+                "trust": 4,
+                "items": {
+                  "herb": -1
+                }
+              },
+              "requires": {
+                "items": {
+                  "herb": 1
+                }
+              }
+            },
+            {
+              "id": "self",
+              "label": "각자 상처를 돌보자고 한다",
+              "result": "상대는 짧게 고개를 끄덕였다. 서로에게 기대지 않는 거리가 남았다.",
+              "effects": {
+                "stats": {
+                  "will": 1
+                },
+                "flags": [
+                  "self_reliant"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "kind": "sub",
+      "title": "계곡의 쓴 풀",
+      "entry": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "title": "계곡의 쓴 풀",
+          "text": "물가에 비슷하게 생긴 두 종류의 풀이 자란다. 냄새를 맡으면 차이를 알 수 있을까.",
+          "choices": [
+            {
+              "id": "identify",
+              "label": "냄새와 잎맥을 비교한다",
+              "result": "먹을 수 있는 풀을 골라 작은 약초 꾸러미를 만들었다.",
+              "effects": {
+                "stats": {
+                  "insight": 1
+                },
+                "flags": [
+                  "herbalist"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {
+                  "herb": 2
+                }
+              },
+              "check": {
+                "stat": "insight",
+                "difficulty": 55
+              },
+              "failure": {
+                "result": "끝내 확신하지 못해 채집을 멈췄다. 잘못 먹을 위험은 피했다.",
+                "effects": {
+                  "stats": {
+                    "energy": -2
+                  },
+                  "flags": [],
+                  "pressure": 0,
+                  "trust": 0,
+                  "items": {}
+                }
+              }
+            },
+            {
+              "id": "ask",
+              "label": "상대와 아는 것을 맞춰 본다",
+              "result": "서로 다른 지식을 모아 안전한 풀을 한 줌 얻었다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "shared_knowledge"
+                ],
+                "pressure": 0,
+                "trust": 3,
+                "items": {
+                  "herb": 1
+                }
+              }
+            },
+            {
+              "id": "leave",
+              "label": "채집 대신 물길을 조사한다",
+              "result": "물이 드나드는 작은 틈을 발견했다. 사람 하나가 빠져나갈 길을 기억했다.",
+              "effects": {
+                "stats": {
+                  "agility": 1
+                },
+                "flags": [
+                  "stream_path"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "kind": "sub",
+      "title": "어머니의 문턱",
+      "entry": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "title": "어머니의 문턱",
+          "text": "거처 안에서 작은 기침 소리가 난다. 밖에서 어떤 일이 일어나든, 보호해야 할 사람이 이곳에 있다.",
+          "choices": [
+            {
+              "id": "shelter",
+              "label": "거처 안쪽에 숨을 공간을 마련한다",
+              "result": "가구 뒤에 몸을 숨길 공간과 물을 준비했다. 비상시의 약속도 짧게 전했다.",
+              "effects": {
+                "stats": {
+                  "energy": -5
+                },
+                "flags": [
+                  "shelter"
+                ],
+                "pressure": 0,
+                "trust": 3,
+                "items": {}
+              }
+            },
+            {
+              "id": "warn",
+              "label": "위험과 자신의 계획을 솔직하게 전한다",
+              "result": "불안한 눈빛 뒤로 고개를 끄덕이는 모습이 보였다. 혼란 속에서도 신호를 알아들을 것이다.",
+              "effects": {
+                "stats": {
+                  "will": 1
+                },
+                "flags": [
+                  "warned"
+                ],
+                "pressure": 0,
+                "trust": 2,
+                "items": {}
+              }
+            },
+            {
+              "id": "quiet",
+              "label": "불안하게 하지 않으려고 평소처럼 행동한다",
+              "result": "잠깐의 평온은 지켰다. 다만 밖의 위험에 대한 준비는 미뤄졌다.",
+              "effects": {
+                "stats": {
+                  "stability": 6
+                },
+                "flags": [
+                  "unwarned"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "kind": "sub",
+      "title": "낡은 덫",
+      "entry": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "title": "낡은 덫",
+          "text": "산짐승을 잡던 오래된 덫이 덤불에 묻혀 있다. 발판만 손보면 다시 쓸 수 있을 듯하다.",
+          "choices": [
+            {
+              "id": "repair",
+              "label": "기력 6을 써서 덫을 고친다",
+              "result": "덫을 고치고 아군이 밟지 않도록 가지로 표식을 남겼다.",
+              "effects": {
+                "stats": {
+                  "energy": -6
+                },
+                "flags": [
+                  "trap"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "stats": {
+                  "energy": 6
+                }
+              }
+            },
+            {
+              "id": "dismantle",
+              "label": "덫을 해체하며 구조를 익힌다",
+              "result": "발판과 줄이 어떻게 연결되는지 익혔다. 함정에 걸렸을 때 빠져나올 요령을 배웠다.",
+              "effects": {
+                "stats": {
+                  "agility": 2
+                },
+                "flags": [
+                  "trap_lore"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              }
+            },
+            {
+              "id": "remove",
+              "label": "누군가 다치지 않도록 치워 둔다",
+              "result": "지나갈 자리가 안전해졌다. 돌아올 길을 확보한 셈이다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "safe_path"
+                ],
+                "pressure": 0,
+                "trust": 3,
+                "items": {}
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "kind": "sub",
+      "title": "재 속의 글자",
+      "entry": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "title": "재 속의 글자",
+          "text": "꺼진 불씨 옆에서 찢긴 종이를 발견했다. 보이는 것은 산길 표식과 짧은 문장뿐이다.",
+          "choices": [
+            {
+              "id": "decode",
+              "label": "통찰로 남은 글자를 복원한다",
+              "result": "이것은 공격 명령이 아니라 위치를 확인하라는 전갈이었다. 협상에 쓸 여지가 남아 있다.",
+              "effects": {
+                "stats": {
+                  "insight": 1
+                },
+                "flags": [
+                  "orders"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "check": {
+                "stat": "insight",
+                "difficulty": 58
+              },
+              "failure": {
+                "result": "재가 손끝에서 부서졌다. 일부 표식만 기억했다.",
+                "effects": {
+                  "stats": {},
+                  "flags": [
+                    "marks"
+                  ],
+                  "pressure": 0,
+                  "trust": 0,
+                  "items": {}
+                }
+              }
+            },
+            {
+              "id": "keep",
+              "label": "종이를 훼손하지 않고 챙긴다",
+              "result": "누군가 자신들의 전갈을 알아볼지도 모른다. 증거를 그대로 보관했다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "letter"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              }
+            },
+            {
+              "id": "burn",
+              "label": "누구에게도 이용되지 않도록 태운다",
+              "result": "재가 바람에 흩어졌다. 추적 단서 하나가 사라졌다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "burned_letter"
+                ],
+                "pressure": -7,
+                "trust": 0,
+                "items": {}
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "kind": "sub",
+      "title": "침묵 속의 호흡",
+      "entry": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "title": "침묵 속의 호흡",
+          "text": "대화가 끊기자 주변의 기운이 더 선명하게 느껴진다. 힘을 다루는 방식에도 각자의 버릇이 드러난다.",
+          "choices": [
+            {
+              "id": "breathe",
+              "label": "상대와 호흡을 맞춘다",
+              "result": "호흡의 간격을 맞추자 흩어지던 기운이 가라앉았다. 위급할 때 되풀이할 순서를 기억했다.",
+              "effects": {
+                "stats": {
+                  "stability": 10,
+                  "will": 1
+                },
+                "flags": [
+                  "breathing"
+                ],
+                "pressure": 0,
+                "trust": 4,
+                "items": {}
+              }
+            },
+            {
+              "id": "train",
+              "label": "힘을 끌어올려 시험한다",
+              "result": "순간적으로 힘이 응축됐다. 반대로 산에 남는 기척도 커졌다.",
+              "effects": {
+                "stats": {
+                  "power": 3,
+                  "energy": -8
+                },
+                "flags": [
+                  "trained"
+                ],
+                "pressure": 10,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "stats": {
+                  "energy": 8
+                }
+              }
+            },
+            {
+              "id": "meditate",
+              "label": "홀로 감각을 정리한다",
+              "result": "주변의 소리와 자신의 긴장을 구분해 냈다.",
+              "effects": {
+                "stats": {
+                  "insight": 2,
+                  "stability": 3
+                },
+                "flags": [
+                  "focused"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s08",
+      "kind": "sub",
+      "title": "돌무더기의 경계",
+      "entry": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "title": "돌무더기의 경계",
+          "text": "거처 뒤의 오래된 돌무더기에 기운이 머문다. 완성된 결계는 아니지만 작은 장치로 쓸 가능성은 있다.",
+          "choices": [
+            {
+              "id": "ward",
+              "label": "기력 10으로 보호 경계를 만든다",
+              "result": "돌 사이로 기운이 이어졌다. 큰 적을 멈추지는 못해도 잠깐의 시간을 벌 수 있다.",
+              "effects": {
+                "stats": {
+                  "energy": -10
+                },
+                "flags": [
+                  "ward"
+                ],
+                "pressure": -8,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "stats": {
+                  "energy": 10
+                }
+              }
+            },
+            {
+              "id": "alarm",
+              "label": "돌과 끈으로 경보 장치를 만든다",
+              "result": "길을 건드리면 돌이 떨어지도록 매달았다. 침입을 미리 알아챌 수 있다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "alarm"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              }
+            },
+            {
+              "id": "observe",
+              "label": "기운이 빠져나가는 방향을 살핀다",
+              "result": "힘으로 맞서기보다 흘려보낼 틈을 찾아냈다.",
+              "effects": {
+                "stats": {
+                  "insight": 1
+                },
+                "flags": [
+                  "weak_point"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s09",
+      "kind": "sub",
+      "title": "낯선 새의 울음",
+      "entry": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "title": "낯선 새의 울음",
+          "text": "같은 울음이 일정한 간격으로 반복된다. 자연의 소리인지 누군가의 신호인지 분간하기 어렵다.",
+          "choices": [
+            {
+              "id": "imitate",
+              "label": "울음을 흉내 내어 반응을 본다",
+              "result": "반대편에서 한 번 더 울음이 돌아왔다. 상대의 신호를 이해할 실마리를 잡았다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "signal"
+                ],
+                "pressure": -3,
+                "trust": 0,
+                "items": {}
+              },
+              "check": {
+                "stat": "insight",
+                "difficulty": 50
+              },
+              "failure": {
+                "result": "울음이 끊겼다. 누군가 이쪽의 기척을 의심하는 듯하다.",
+                "effects": {
+                  "stats": {},
+                  "flags": [],
+                  "pressure": 6,
+                  "trust": 0,
+                  "items": {}
+                }
+              }
+            },
+            {
+              "id": "listen",
+              "label": "움직이지 않고 방향을 기억한다",
+              "result": "소리가 이동하는 방향을 읽어 추적자의 길을 예상했다.",
+              "effects": {
+                "stats": {
+                  "insight": 1
+                },
+                "flags": [
+                  "scout_path"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              }
+            },
+            {
+              "id": "answer",
+              "label": "큰 소리로 모습을 드러내라고 요구한다",
+              "result": "계곡에 목소리가 울렸다. 숨은 상대가 이쪽의 위치를 알게 됐다.",
+              "effects": {
+                "stats": {
+                  "will": 2
+                },
+                "flags": [
+                  "challenge"
+                ],
+                "pressure": 10,
+                "trust": 0,
+                "items": {}
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "kind": "sub",
+      "title": "지킬 것에 대한 약속",
+      "entry": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "title": "지킬 것에 대한 약속",
+          "text": "산을 떠날지, 머무를지 아직 정해지지 않았다. 그러나 결정적인 순간에 무엇을 먼저 지킬지는 말해 둘 수 있다.",
+          "choices": [
+            {
+              "id": "promise",
+              "label": "서로를 먼저 지키겠다고 약속한다",
+              "result": "약속의 의미를 확인했다. 위험 앞에서 상대에게 등을 맡길 근거가 생겼다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "promise"
+                ],
+                "pressure": 0,
+                "trust": 7,
+                "items": {}
+              }
+            },
+            {
+              "id": "escape",
+              "label": "위험하면 함께 물러날 순서를 정한다",
+              "result": "싸움에서 이기는 것과 살아남는 것이 같지 않다는 데 뜻을 모았다.",
+              "effects": {
+                "stats": {
+                  "agility": 1
+                },
+                "flags": [
+                  "retreat_plan"
+                ],
+                "pressure": 0,
+                "trust": 3,
+                "items": {}
+              }
+            },
+            {
+              "id": "duty",
+              "label": "각자의 의무를 우선하자고 한다",
+              "result": "서로의 선택을 강요하지 않기로 했다. 의지는 단단해졌지만 거리는 조금 벌어졌다.",
+              "effects": {
+                "stats": {
+                  "will": 3
+                },
+                "flags": [
+                  "duty"
+                ],
+                "pressure": 0,
+                "trust": -2,
+                "items": {}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "mains": [
+    {
+      "id": "m01",
+      "kind": "main",
+      "title": "산을 살피는 눈",
+      "threshold": 3,
+      "entry": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "title": "산을 살피는 눈",
+          "text": "숲 가장자리에서 추적자가 모습을 드러낸다. 그는 바로 공격하지 않고 거처로 이어지는 길을 훑어본다.",
+          "choices": [
+            {
+              "id": "ambush",
+              "label": "준비한 덫으로 추적자를 붙잡는다",
+              "result": "발목이 묶인 추적자가 무기를 놓쳤다. 누가 보냈는지 물을 기회가 생겼다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "scout_caught"
+                ],
+                "pressure": -5,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "flags": [
+                  "trap"
+                ]
+              },
+              "next": "question"
+            },
+            {
+              "id": "talk",
+              "label": "전갈을 내보이며 대화를 요구한다",
+              "result": "추적자가 종이와 이쪽 얼굴을 번갈아 본다. 바로 칼을 빼기보다 말을 듣기로 한다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "scout_talk"
+                ],
+                "pressure": -3,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "anyFlags": [
+                  "letter",
+                  "orders"
+                ]
+              },
+              "next": "question"
+            },
+            {
+              "id": "watch",
+              "label": "발자국을 숨기고 상대를 지켜본다",
+              "result": "추적자는 깊은 곳까지 들어오지 못하고 돌아선다. 그가 무엇을 전할지는 이제 이쪽의 대응에 달렸다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "scout_seen"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "next": "report"
+            },
+            {
+              "id": "chase",
+              "label": "힘으로 몰아낸다",
+              "result": "짧은 충돌 끝에 추적자는 물러났다. 상처를 입었지만 이 산에 강한 힘이 있다는 소문은 남는다.",
+              "effects": {
+                "stats": {
+                  "hp": -8
+                },
+                "flags": [
+                  "scout_wounded"
+                ],
+                "pressure": 15,
+                "trust": 0,
+                "items": {}
+              },
+              "next": "report"
+            }
+          ]
+        },
+        {
+          "id": "question",
+          "title": "전갈의 행방",
+          "text": "추적자는 뱀의 명령을 받았다고 말한다. 아직 위치를 확정한 보고는 올라가지 않았다는 주장이다.",
+          "choices": [
+            {
+              "id": "mislead",
+              "label": "남겨 둔 거짓 흔적으로 보고를 유도한다",
+              "result": "추적자는 비어 있는 계곡 쪽을 목표의 은신처로 믿고 떠났다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "false_report"
+                ],
+                "pressure": -18,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "anyFlags": [
+                  "concealed",
+                  "stream_path",
+                  "signal"
+                ]
+              },
+              "next": "done"
+            },
+            {
+              "id": "terms",
+              "label": "공격하지 않겠다는 조건으로 돌려보낸다",
+              "result": "조건을 전하겠다는 답을 받았다. 적어도 지금은 칼보다 말이 먼저 오갈 여지가 있다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "parley"
+                ],
+                "pressure": -10,
+                "trust": 2,
+                "items": {}
+              },
+              "next": "done"
+            },
+            {
+              "id": "hold",
+              "label": "거처에서 떨어진 곳에 억류한다",
+              "result": "위치 보고는 막았다. 다만 연락이 끊긴 부하를 찾는 움직임이 뒤따를 수 있다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "scout_detained"
+                ],
+                "pressure": 8,
+                "trust": 0,
+                "items": {}
+              },
+              "next": "done"
+            }
+          ]
+        },
+        {
+          "id": "report",
+          "title": "남길 흔적",
+          "text": "추적자가 사라진 길에 이쪽의 흔적이 남아 있다. 그대로 둘 것인가, 다른 메시지를 남길 것인가.",
+          "choices": [
+            {
+              "id": "erase",
+              "label": "흔적을 덮어 보고의 확신을 낮춘다",
+              "result": "뒤섞인 발자국 때문에 추적자는 정확한 위치를 단정하기 어려워졌다.",
+              "effects": {
+                "stats": {
+                  "energy": -5
+                },
+                "flags": [
+                  "uncertain_report"
+                ],
+                "pressure": -10,
+                "trust": 0,
+                "items": {}
+              },
+              "next": "done"
+            },
+            {
+              "id": "sign",
+              "label": "빈터에 협상 의사를 남긴다",
+              "result": "먼저 공격하지 않겠다는 표식을 남겼다. 답이 올지는 아직 알 수 없다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "parley"
+                ],
+                "pressure": -5,
+                "trust": 0,
+                "items": {}
+              },
+              "next": "done"
+            },
+            {
+              "id": "defy",
+              "label": "다시 오면 싸우겠다는 경고를 남긴다",
+              "result": "경고는 명확했다. 상대 역시 더 강한 준비를 할 것이다.",
+              "effects": {
+                "stats": {
+                  "will": 1
+                },
+                "flags": [
+                  "defiance"
+                ],
+                "pressure": 12,
+                "trust": 0,
+                "items": {}
+              },
+              "next": "done"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m02",
+      "kind": "main",
+      "title": "산 아래에서 오는 것",
+      "threshold": 6,
+      "entry": "arrival",
+      "nodes": [
+        {
+          "id": "arrival",
+          "title": "산 아래에서 오는 것",
+          "text": "지난 대응이 산 아래에 전해졌다. 무엇이 이곳으로 향하는지, 혹은 오지 않는지는 남겨 둔 흔적에 달려 있다.",
+          "choices": [
+            {
+              "id": "ready",
+              "label": "기척을 확인한다",
+              "result": "서로의 위치를 확인하고 산길을 바라본다.",
+              "effects": {
+                "stats": {},
+                "flags": [],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "next": "@arrival"
+            }
+          ]
+        },
+        {
+          "id": "snake",
+          "title": "뱀이 직접 모습을 드러내다",
+          "text": "무거운 기운이 나무 사이를 누른다. 뱀은 부하 대신 직접 산에 들어왔다. 곧바로 싸울지, 다른 방법을 찾을지 결정해야 한다.",
+          "choices": [
+            {
+              "id": "ward",
+              "label": "보호 경계로 거처를 가리고 맞선다",
+              "result": "경계가 첫 충격을 흩어 냈다. 뱀을 잠시 상대하는 동안 거처는 시야에서 벗어났다.",
+              "effects": {
+                "stats": {
+                  "energy": -6
+                },
+                "flags": [
+                  "held_snake"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "flags": [
+                  "ward"
+                ]
+              },
+              "next": "aftermath",
+              "battle": {
+                "name": "뱀 · 힘의 시험",
+                "hp": 80,
+                "power": 15
+              }
+            },
+            {
+              "id": "deal",
+              "label": "전갈의 내용을 근거로 협상을 제안한다",
+              "result": "뱀은 잠시 공격을 멈추고 조건을 들어 보기로 했다. 지금 당장 결론을 내리지는 않는다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "truce"
+                ],
+                "pressure": -10,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "anyFlags": [
+                  "orders",
+                  "parley"
+                ]
+              },
+              "next": "aftermath"
+            },
+            {
+              "id": "fight",
+              "label": "정면에서 공격을 받아낸다",
+              "result": "뱀과의 충돌이 시작된다. 이 싸움은 상대를 죽이는 것보다 물러서게 만드는 것이 목적이다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "stood_ground"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "next": "aftermath",
+              "battle": {
+                "name": "뱀 · 산속 대치",
+                "hp": 95,
+                "power": 18
+              }
+            },
+            {
+              "id": "cover",
+              "label": "거처를 우선 지키며 물러난다",
+              "result": "몸으로 길을 막고 거처 쪽을 숨겼다. 큰 상처를 입었지만 뱀에게 안쪽의 모습을 보이지 않았다.",
+              "effects": {
+                "stats": {
+                  "hp": -22
+                },
+                "flags": [
+                  "evacuated"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "next": "aftermath"
+            }
+          ]
+        },
+        {
+          "id": "minions",
+          "title": "부하들의 급습",
+          "text": "뱀은 모습을 드러내지 않았다. 대신 사역마와 추적자들이 나무 사이로 갈라져 들어온다.",
+          "choices": [
+            {
+              "id": "trap",
+              "label": "준비한 덫과 경보를 연결해 막는다",
+              "result": "첫 무리가 발을 헛디뎠다. 남은 추적자들이 더 깊이 들어오기를 망설인다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "repelled"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "anyFlags": [
+                  "trap",
+                  "alarm"
+                ]
+              },
+              "next": "aftermath"
+            },
+            {
+              "id": "signal",
+              "label": "익힌 신호로 철수 명령을 흉내 낸다",
+              "result": "숲 너머에서 같은 신호가 되돌아왔다. 추적자들은 명령을 확인하려고 물러났다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "deceived"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "flags": [
+                  "signal"
+                ]
+              },
+              "next": "aftermath"
+            },
+            {
+              "id": "fight",
+              "label": "남은 무리를 직접 막는다",
+              "result": "거처로 가는 길목을 가로막는다. 짧고 거친 전투가 시작된다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "stood_ground"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "next": "aftermath",
+              "battle": {
+                "name": "뱀의 사역마 무리",
+                "hp": 60,
+                "power": 12
+              }
+            },
+            {
+              "id": "hide",
+              "label": "거처의 사람들을 안쪽으로 숨긴다",
+              "result": "추적자들이 빈터를 뒤지는 동안 숨을 죽였다. 뒤늦게 돌아본 산길에는 발자국만 남았다.",
+              "effects": {
+                "stats": {
+                  "energy": -5
+                },
+                "flags": [
+                  "sheltered"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "anyFlags": [
+                  "shelter",
+                  "warned"
+                ]
+              },
+              "next": "aftermath"
+            }
+          ]
+        },
+        {
+          "id": "quiet",
+          "title": "아무도 오지 않은 길",
+          "text": "거처를 향하는 발자국은 끝내 나타나지 않았다. 잘못된 보고나 협상의 여지가 공격을 늦춘 듯하다. 고요함도 선택의 결과였다.",
+          "choices": [
+            {
+              "id": "silence",
+              "label": "위치를 드러내지 않고 평온을 지킨다",
+              "result": "불빛을 낮추고 서로의 숨소리를 확인했다. 오늘 이 산에서는 싸움이 일어나지 않았다.",
+              "effects": {
+                "stats": {
+                  "stability": 6
+                },
+                "flags": [
+                  "peace_kept"
+                ],
+                "pressure": -8,
+                "trust": 3,
+                "items": {}
+              },
+              "next": "aftermath"
+            },
+            {
+              "id": "message",
+              "label": "중립적인 답신을 남긴다",
+              "result": "적의를 키우지 않겠다는 답을 산길 바깥에 남겼다. 만남 대신 전갈이 오갈 여지를 만들었다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "truce"
+                ],
+                "pressure": -5,
+                "trust": 0,
+                "items": {}
+              },
+              "next": "aftermath"
+            },
+            {
+              "id": "prepare",
+              "label": "고요한 틈에 다음 위협에 대비한다",
+              "result": "위험이 사라졌다고 단정하지 않고 주변을 정돈했다.",
+              "effects": {
+                "stats": {
+                  "will": 1
+                },
+                "flags": [
+                  "prepared"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "next": "aftermath"
+            }
+          ]
+        },
+        {
+          "id": "aftermath",
+          "title": "소란이 지나간 자리",
+          "text": "발자국과 부러진 가지를 살핀다. 누가 왔든, 오지 않았든, 이제 남은 사람들의 선택이 중요하다.",
+          "choices": [
+            {
+              "id": "care",
+              "label": "서로의 상태를 확인한다",
+              "result": "서로 살아 있음을 확인했다. 앞으로 함께 결정할 이유가 하나 더 생겼다.",
+              "effects": {
+                "stats": {
+                  "stability": 4
+                },
+                "flags": [
+                  "checked_companion"
+                ],
+                "pressure": 0,
+                "trust": 4,
+                "items": {}
+              },
+              "next": "done"
+            },
+            {
+              "id": "study",
+              "label": "남은 흔적을 분석한다",
+              "result": "다음에 같은 일이 생기면 더 빨리 알아차릴 수 있을 것이다.",
+              "effects": {
+                "stats": {
+                  "insight": 2
+                },
+                "flags": [
+                  "battle_notes"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "next": "done"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m03",
+      "kind": "main",
+      "title": "이 산에 남을 이유",
+      "threshold": 10,
+      "entry": "decision",
+      "nodes": [
+        {
+          "id": "decision",
+          "title": "이 산에 남을 이유",
+          "text": "처음 유성이 떨어졌을 때와 같은 바람이 분다. 그 사이 쌓인 약속과 상처가, 이 산에서의 마지막 결정을 바꾸어 놓았다.",
+          "choices": [
+            {
+              "id": "stay",
+              "label": "서로를 믿고 거처를 함께 지킨다",
+              "result": "상대가 내민 손을 받아들인다. 두 사람은 함께 이 산을 지키기로 뜻을 모았다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "together"
+                ],
+                "pressure": 0,
+                "trust": 4,
+                "items": {}
+              },
+              "requires": {
+                "trust": 25
+              },
+              "next": "home"
+            },
+            {
+              "id": "pact",
+              "label": "적과의 휴전을 확정한다",
+              "result": "승패 대신 조건을 정리한다. 서로 물러설 선을 정하면 당장의 파국은 피할 수 있다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "pact"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "anyFlags": [
+                  "truce",
+                  "parley"
+                ]
+              },
+              "next": "pact"
+            },
+            {
+              "id": "leave",
+              "label": "남겨 둔 퇴로로 떠날 준비를 한다",
+              "result": "필요한 짐만 모았다. 산 너머의 이야기는 아직 시작되지 않았다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "departure"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "anyFlags": [
+                  "stream_path",
+                  "safe_path",
+                  "retreat_plan"
+                ]
+              },
+              "next": "leave"
+            },
+            {
+              "id": "alone",
+              "label": "각자의 방식으로 산을 지킨다",
+              "result": "같은 뜻이 아니어도 지금은 등을 돌리지 않기로 했다. 아직 풀리지 않은 말들이 남아 있다.",
+              "effects": {
+                "stats": {
+                  "will": 1
+                },
+                "flags": [
+                  "separate"
+                ],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "next": "alone"
+            }
+          ]
+        },
+        {
+          "id": "home",
+          "title": "문 앞에 남은 두 사람",
+          "text": "거처의 문이 다시 열린다. 지켜낸 평온을 어떤 약속으로 남길 것인가.",
+          "choices": [
+            {
+              "id": "vow",
+              "label": "위급할 때 같은 호흡으로 버티겠다고 약속한다",
+              "result": "처음 맞춘 호흡을 되풀이했다. 완벽한 신뢰는 아니지만 함께 버틸 방법을 알고 있다.",
+              "effects": {
+                "stats": {},
+                "flags": [
+                  "vow"
+                ],
+                "pressure": 0,
+                "trust": 5,
+                "items": {}
+              },
+              "requires": {
+                "anyFlags": [
+                  "promise",
+                  "breathing"
+                ]
+              },
+              "ending": "bond"
+            },
+            {
+              "id": "watch",
+              "label": "서로 번갈아 거처를 지키기로 한다",
+              "result": "각자의 경계를 조금씩 나누었다. 유성이 남긴 만남은 공동의 일상이 되었다.",
+              "effects": {
+                "stats": {},
+                "flags": [],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "ending": "home"
+            }
+          ]
+        },
+        {
+          "id": "pact",
+          "title": "말로 그은 경계",
+          "text": "뱀의 쪽에서 조건을 확인하는 표식이 도착했다. 이번 합의는 영원한 동맹이 아니다.",
+          "choices": [
+            {
+              "id": "evidence",
+              "label": "확보한 명령과 전갈을 조건의 증거로 삼는다",
+              "result": "무엇을 약속했는지 남겨 두었다. 서로의 속내를 알지 못해도 함부로 뒤집기 어려운 휴전이 되었다.",
+              "effects": {
+                "stats": {},
+                "flags": [],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "anyFlags": [
+                  "orders",
+                  "letter"
+                ]
+              },
+              "ending": "pact_strong"
+            },
+            {
+              "id": "temporary",
+              "label": "이번 산속 대치를 끝내는 데 합의한다",
+              "result": "칼을 거두는 대신 경계를 늦추지 않기로 했다. 다음 만남은 다른 선택을 요구할 것이다.",
+              "effects": {
+                "stats": {},
+                "flags": [],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "ending": "pact"
+            }
+          ]
+        },
+        {
+          "id": "leave",
+          "title": "출발 앞에서",
+          "text": "계곡의 물소리를 들으며 짐을 나눈다. 떠나기 전에 이 만남의 의미를 정리할 시간이 남았다.",
+          "choices": [
+            {
+              "id": "together",
+              "label": "함께 떠나겠다는 약속을 확인한다",
+              "result": "두 사람의 발자국이 같은 방향으로 놓였다. 이야기는 산의 경계에서 잠시 멈춘다.",
+              "effects": {
+                "stats": {},
+                "flags": [],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "requires": {
+                "trust": 20
+              },
+              "ending": "journey"
+            },
+            {
+              "id": "separate",
+              "label": "각자의 길을 존중한다",
+              "result": "만남이 같은 목적을 뜻하지는 않았다. 서로의 이름을 기억하며 각자의 길을 준비했다.",
+              "effects": {
+                "stats": {},
+                "flags": [],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "ending": "parting"
+            }
+          ]
+        },
+        {
+          "id": "alone",
+          "title": "남겨 둔 거리",
+          "text": "서로가 지키려는 것을 끝내 하나로 묶지는 못했다. 그렇다고 이번 만남을 없던 일로 할 수도 없다.",
+          "choices": [
+            {
+              "id": "respect",
+              "label": "서로의 선택을 기억하겠다고 한다",
+              "result": "산에는 두 개의 뜻이 남았다. 불완전한 협력도 이번 역사의 일부다.",
+              "effects": {
+                "stats": {},
+                "flags": [],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "ending": "distance"
+            },
+            {
+              "id": "return",
+              "label": "한 번 더 조건을 이야기한다",
+              "result": "대답을 서두르지 않고 각자가 지킬 선을 정했다. 다음을 약속할 정도의 여지는 남았다.",
+              "effects": {
+                "stats": {},
+                "flags": [],
+                "pressure": 0,
+                "trust": 0,
+                "items": {}
+              },
+              "ending": "open"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "endings": {
+    "bond": {
+      "title": "같은 호흡",
+      "text": "서로를 지킬 약속과 준비가 하나로 이어졌다."
+    },
+    "home": {
+      "title": "함께 지키는 산",
+      "text": "두 사람은 산속 거처를 공동의 안식처로 삼았다."
+    },
+    "pact_strong": {
+      "title": "증거가 남은 휴전",
+      "text": "말과 증거로 당장의 공격을 멈췄다."
+    },
+    "pact": {
+      "title": "불완전한 휴전",
+      "text": "적의가 사라진 것은 아니지만 칼은 거두었다."
+    },
+    "journey": {
+      "title": "나란한 발자국",
+      "text": "함께 산을 떠날 준비를 마쳤다. 다음 지역은 이번 장에 포함되지 않는다."
+    },
+    "parting": {
+      "title": "다른 길의 이름",
+      "text": "서로를 기억하되 다른 방향을 택했다."
+    },
+    "distance": {
+      "title": "남겨 둔 거리",
+      "text": "각자의 의무를 존중하는 불완전한 협력으로 남았다."
+    },
+    "open": {
+      "title": "아직 끝나지 않은 대화",
+      "text": "확답 대신 다음 대화의 가능성을 남겼다."
+    }
+  }
+}
